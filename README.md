@@ -34,7 +34,8 @@ The main constraints of using AGOL are:
 * Hierarchy generated using Pcodes on import but stored in the DB using UUIDs
 * Admin levels need to be uploaded from level 0 to lower levels 
 * Level Type shall be added to the shapefile / dataset for all features \(ADM0\_TYPE\) 
-* UNICEF needs to maintain its own repository of admin boundaries, not always COD-ABs / OCHA will have a suitable datasets. Preference will be for country office / internal datasets 
+* UNICEF needs to maintain its own repository of admin boundaries, not always COD-ABs / OCHA will have a suitable datasets. Preference will be for country office / internal datasets.
+* For those countries, which do not have COD-ABs on HDX, or these datasets were not yet processed and uploaded to the Geospatial Data Repository, only admin level 0 \(country boundary\) shall be provided. Therefore, all countries should be available on GDR with at least one polygon at admin level 0. For those countries UN Map dataset \(2018\) has been used.
 * No data can be deleted once imported into Master Database
 
 ## General workflow: validate and upload new datasets
@@ -128,4 +129,12 @@ Notes:
 * version 3 is uploaded with two admin boundaries \(\#4 and \#5\) - previous AB \#3 was split into two ABs
 * all previous locations for this country and admin level \(i.e. ABs \#1 and \#2 from version 1 and AB \#3 from version 2\) are remapped to version 3. 
 * intervention \#1, originally referenced to AB \#2 is now remapped with AB \#5, while the intervention \#2, originally referenced to AB \#3 is now remapped to AB \#4.
+
+## ArcGIS Online
+
+Here is the link to the Master Feature Layer:
+
+{% embed url="https://unicef-hq.maps.arcgis.com/home/item.html?id=54d40af488e34a60a29e017cc70215f1" %}
+
+![](.gitbook/assets/image%20%286%29.png)
 
