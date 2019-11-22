@@ -96,3 +96,36 @@ The current matching algorithm works as follows:
 
 The final output of the remapping is a list of all "source" \(old\) admin boundaries for each admin level with one matching "target" admin boundary.
 
+## Implementation of versioning
+
+The following diagrams represents the scenario with 3 subsequent versions of admin boundaries uploaded to the GDR.
+
+### Version 1 uploaded
+
+![](.gitbook/assets/image%20%283%29.png)
+
+Notes:
+
+* In version 1 there are two admin boundaries \(\#1 and \#2\)
+* Intervention \#1 is referenced to AB \#2
+
+### Version 2 uploaded
+
+![](.gitbook/assets/image%20%284%29.png)
+
+Notes:
+
+* version 2 is uploaded with just one AB \(\#3\) - "old" ABs \#1 and \#2 got merged into one AB
+* both AB \#1 and \#2 are matched to the new AB \#3
+* in the Internal Platform \(e.g. eTools\), both the original AB \(\#2\) and the matching active AB \(\#3\) are recorded for the Intervention \#1. This intervention can be therefore mapped on the current admin boundary map, but the original reference is still preserved
+
+### Version 3 uploaded
+
+![](.gitbook/assets/image%20%285%29.png)
+
+Notes:
+
+* version 3 is uploaded with two admin boundaries \(\#4 and \#5\) - previous AB \#3 was split into two ABs
+* all previous locations for this country and admin level \(i.e. ABs \#1 and \#2 from version 1 and AB \#3 from version 2\) are remapped to version 3. 
+* intervention \#1, originally referenced to AB \#2 is now remapped with AB \#5, while the intervention \#2, originally referenced to AB \#3 is now remapped to AB \#4.
+
