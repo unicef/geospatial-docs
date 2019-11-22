@@ -1,4 +1,4 @@
 # Table of contents
 
-* [Initial page](README.md)
+* [UNICEF Geospatial Repository on ArcGIS Online](README.md)
 
