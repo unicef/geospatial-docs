@@ -67,18 +67,32 @@ Additionally, View Layers are created for each country, that contain the active 
 * Check if parent pcodes exist
 * Check if parent pcodes match spatially
 
-## Remapping concept
+## Remapping concepts
 
 Remapping approach is implemented as a versioning mechanism. The general idea is that once the new version of the dataset for a given country and admin level is uploaded, all previous \(old version\) locations are matched with \(remapped to\) **exactly one location** in a new dataset. 
 
 The current matching algorithm works as follows:
 
-1. Iterate through all "old" locations \(for a given country and admin level\)
+1. Iterate through all "source" admin boundaries \(for a given country and admin level\)
 2. Get the "source" admin boundary
 3. Find the admin boundaries in the "target" dataset that intersect with the bounding box \(envelope\) of the "source" admin boundary
-4. Intersect Source AB with Nearest Neighbor Admin Boundaries
-5. Calculate the percentage of spatial overlap using two measures:
-   1. Percentage of the "intersecting" area comparing to the "old" boundary
-   2. Percentage of the "intersecting" area comparing to the "new" boundary
-   3. 
+4. Intersect "source" AB with Nearest Neighbor Admin Boundaries
+5. Calculate the similarity of names between "source" and "target" AB
+6. Calculate the percentage of spatial overlap using two measures:
+   1. Percentage of the "intersecting" area comparing to the "source" boundary
+   2. Percentage of the "intersecting" area comparing to the "target" boundary
+7. Select the "target" admin boundary that  has the highest spatial overlap AND the highest name similarity.
+8. In case no intersecting "target" features are found, find the "target" admin boundary, which is closest to the "source" admin boundary.
+
+ 
+
+![](.gitbook/assets/image%20%281%29.png)
+
+### Calculating spatial overlaps
+
+![](.gitbook/assets/image%20%282%29.png)
+
+### Output of the remapping
+
+The final output of the remapping is a list of all "source" \(old\) admin boundaries for each admin level with one matching "target" admin boundary.
 
